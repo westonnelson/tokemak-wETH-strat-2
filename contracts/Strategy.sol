@@ -14,12 +14,10 @@ import {
     SafeMath,
     IERC20,
     Address
-} from "@openzeppelin/contracts/token/ERC20/SafeERC20.sol"
+} from "@openzeppelin/contracts/token/ERC20/SafeERC20.sol";
 
-// Import interfaces for many popular DeFi projects, or add your own!
-;
-import ILiquidityEthPool.sol;
-import IRewards.sol;
+import "../interfaces/tokemak/ILiquidityEthPool.sol";
+import "../interfaces/tokemak/IRewards.sol";
 
 contract Strategy is BaseStrategy {
     using SafeERC20 for IERC20;
