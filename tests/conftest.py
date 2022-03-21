@@ -40,7 +40,7 @@ def keeper(accounts):
 
 @pytest.fixture
 def token():
-    token_address = "0x6b175474e89094c44da98b954eedeac495271d0f"  # this should be the address of the ERC-20 used by the strategy/vault (DAI)
+    token_address = "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"  # this should be the address of the ERC-20 used by the strategy/vault - (wETH)
     yield Contract(token_address)
 
 
@@ -58,6 +58,49 @@ def amount(accounts, token, user):
 def weth():
     token_address = "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
     yield Contract(token_address)
+
+@pytest.fixture
+def tweth():
+    token_address = "0xD3D13a578a53685B4ac36A1Bab31912D2B2A2F36"
+    yield Contract(token_address)
+
+@pytest.fixture
+def toke_token():
+    token_address = "0x2e9d63788249371f1DFC918a52f8d799F4a38C94"
+    yield Contract(token_address)
+
+@pytest.fixture
+def tokemak_manager():
+    address = "0xA86e412109f77c45a3BC1c5870b880492Fb86A14"
+    yield Contract(address)
+
+@pytest.fixture
+def tokemak_eth_pool():
+    address = "0xD3D13a578a53685B4ac36A1Bab31912D2B2A2F36"
+    yield Contract(address)
+
+@pytest.fixture
+def weth_whale(accounts):
+    # AAVE wETH pool
+    yield accounts.at("0x030bA81f1c18d280636F32af80b9AAd02Cf0854e", force=True)
+
+
+@pytest.fixture
+def toke_whale(accounts):
+    # Tokemak treasury
+    yield accounts.at("0x8b4334d4812c530574bd4f2763fcd22de94a969b", force=True)
+
+
+@pytest.fixture
+def account_with_tokemak_rollover_role(accounts):
+    # this account should have the role to allow them to call the Tokemak rollover contract
+    yield accounts.at("0x9e0bcE7ec474B481492610eB9dd5D69EB03718D5", force=True)
+
+
+@pytest.fixture
+def tokemak_multisig(accounts):
+    # this account should be the owner of the eth pool
+    yield accounts.at("0x90b6c61b102ea260131ab48377e143d6eb3a9d4b", force=True)
 
 
 @pytest.fixture
