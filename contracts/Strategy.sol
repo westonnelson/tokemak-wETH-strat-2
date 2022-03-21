@@ -6,7 +6,7 @@ pragma experimental ABIEncoderV2;
 
 // These are the core Yearn libraries
 import {
-    BaseStrategy,
+    BaseStrategy
 } from "@yearnvaults/contracts/BaseStrategy.sol";
 import "@openzeppelin/contracts/math/Math.sol";
 import {
