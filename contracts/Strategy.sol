@@ -1,5 +1,4 @@
 // SPDX-License-Identifier: AGPL-3.0
-// Feel free to change the license, but this is what we use
 
 // Feel free to change this version of Solidity. We support >=0.6.0 <0.7.0;
 pragma solidity 0.6.12;
@@ -15,7 +14,13 @@ import {
     SafeMath,
     IERC20,
     Address
-} from "@openzeppelin/contracts/token/ERC20/SafeERC20.sol";
+    
+} from "@openzeppelin/contracts/token/ERC20/SafeERC20.sol"
+
+import {BaseStrategy} from @yearnvaults/contracts/BaseStrategy.sol
+
+
+;
 
 // Import interfaces for many popular DeFi projects, or add your own!
 //import "../interfaces/<protocol>/<Interface>.sol";
@@ -35,10 +40,12 @@ contract Strategy is BaseStrategy {
     // ******** OVERRIDE THESE METHODS FROM BASE CONTRACT ************
 
     function name() external view override returns (string memory) {
-        // Add your own name here, suggestion e.g. "StrategyCreamYFI"
-        return "Strategy<ProtocolName><TokenType>";
+        // Adding Strategy name
+        return "StrategyTokewETH";
+
     }
 
+    // TODO: add together the weth (want) and tWETH balance
     function estimatedTotalAssets() public view override returns (uint256) {
         // TODO: Build a more accurate estimate using the value of all positions in terms of `want`
         return want.balanceOf(address(this));
@@ -58,6 +65,7 @@ contract Strategy is BaseStrategy {
         // NOTE: Should try to free up at least `_debtOutstanding` of underlying position
     }
 
+    // TODO: as long as there is not too much _debtOutstanding, invest excess want into tokemak liquidity
     function adjustPosition(uint256 _debtOutstanding) internal override {
         // TODO: Do something to invest excess `want` tokens (from the Vault) into your positions
         // NOTE: Try to adjust positions so that `_debtOutstanding` can be freed up on *next* harvest (not immediately)
