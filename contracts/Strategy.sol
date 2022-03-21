@@ -8,6 +8,7 @@ pragma experimental ABIEncoderV2;
 import {
     BaseStrategy,
 } from "@yearnvaults/contracts/BaseStrategy.sol";
+import "@openzeppelin/contracts/math/Math.sol";
 import {
     SafeERC20,
     SafeMath,
