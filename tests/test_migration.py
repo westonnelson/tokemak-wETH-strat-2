@@ -31,3 +31,4 @@ def test_migration(
         pytest.approx(new_strategy.estimatedTotalAssets(), rel=RELATIVE_APPROX)
         == amount
     )
+

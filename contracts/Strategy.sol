@@ -14,13 +14,10 @@ import {
     SafeMath,
     IERC20,
     Address
-    
+
 } from "@openzeppelin/contracts/token/ERC20/SafeERC20.sol"
 
-import {BaseStrategy} from @yearnvaults/contracts/BaseStrategy.sol
-
-
-;
+import {BaseStrategy} from @yearnvaults/contracts/BaseStrategy.sol;
 
 // Import interfaces for many popular DeFi projects, or add your own!
 //import "../interfaces/<protocol>/<Interface>.sol";
@@ -41,7 +38,7 @@ contract Strategy is BaseStrategy {
 
     function name() external view override returns (string memory) {
         // Adding Strategy name
-        return "StrategyTokewETH";
+        return "StrategyTokewETH2";
 
     }
 
@@ -114,12 +111,14 @@ contract Strategy is BaseStrategy {
     //      protected[2] = tokenC;
     //      return protected;
     //    }
-    function protectedTokens()
-        internal
-        view
-        override
-        returns (address[] memory)
-    {}
+    function protectedTokens() internal override view 
+
+        returns
+        (address [] memory) {
+            address[] memory protected = new address[] (3);
+            protected[0] = tWETH
+            return protected;
+    }
 
     /**
      * @notice

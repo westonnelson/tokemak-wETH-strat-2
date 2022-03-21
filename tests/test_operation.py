@@ -133,3 +133,19 @@ def test_triggers(
 
     strategy.harvestTrigger(0)
     strategy.tendTrigger(0)
+
+def test_harvestable(
+    chain,
+    token,
+    vaulet,
+    strategy,
+    amount,
+    Strategy,
+    strategist,
+    gov,
+    user,
+    RELATIVE_APPROX,
+):
+
+# Check how much can be harvested by calling the view function to see
+assert pytest.approx(strategy.getClaimabaleAmount(), rel=RELATIVE_APPROX == amount)
