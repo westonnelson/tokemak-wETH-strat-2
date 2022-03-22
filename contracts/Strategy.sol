@@ -13,7 +13,7 @@ import {
     SafeERC20,
     SafeMath,
     IERC20,
-    Address,
+    Address
 } from "@openzeppelin/contracts/token/ERC20/SafeERC20.sol";
 
 // Import interfaces for many popular DeFi projects, or add your own!
@@ -45,7 +45,7 @@ contract Strategy is BaseStrategy {
 
     // Removing for now:  address public tradeFactory = address(0);
 
-    constructor(address _vault)BaseStrategy(_vault) public {
+    constructor(address _vault) BaseStrategy(_vault) public {
         // You can set these parameters on deployment to whatever you want
         // maxReportDelay = 6300;
         // profitFactor = 100;
