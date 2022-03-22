@@ -10,6 +10,7 @@ import "./IManager.sol";
 /// @notice Mints 1:1 fToken on deposit, represeting an IOU for the undelrying token that is freely transferable.
 /// @notice Holders of fTokens earn rewards based on duration their tokens were deployed and the demand for that asset.
 /// @notice Holders of fTokens can redeem for underlying asset after issuing requestWithdrawal and waiting for the next cycle.
+
 interface ILiquidityEthPool {
     struct WithdrawalInfo {
         uint256 minCycle;
