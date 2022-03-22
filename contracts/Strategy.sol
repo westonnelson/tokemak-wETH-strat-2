@@ -200,3 +200,4 @@ contract Strategy is BaseStrategy {
             IERC20(_token).safeApprove(_contract, _amount);
         }
     }
+}
