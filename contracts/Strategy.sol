@@ -31,7 +31,7 @@ contract Strategy is BaseStrategy {
         ILiquidityEthPool(0xD3D13a578a53685B4ac36A1Bab31912D2B2A2F36);
 
     IManager internal constant tokemakManager =
-        IManager(0xA86e412109f77c45a3BC1c5870b880492Fb86A14);
+        IManager(0xA86e412109f77c45a3BC1c5870b880492Fb86A14); // SIMPLICITY: remove this for now
 
     // From Tokemak docs: tABC tokens represent your underlying claim to the assets
     // you deposited into the token reactor, available to be redeemed 1:1 at any time
@@ -40,14 +40,14 @@ contract Strategy is BaseStrategy {
         IERC20(0xD3D13a578a53685B4ac36A1Bab31912D2B2A2F36);
 
     IRewards internal constant tokemakRewards =
-        IRewards(0x79dD22579112d8a5F7347c5ED7E609e60da713C5);
+        IRewards(0x79dD22579112d8a5F7347c5ED7E609e60da713C5); // SIMPLICITY: remove this for now
 
     IERC20 internal constant tokeToken =
-        IERC20(0x2e9d63788249371f1DFC918a52f8d799F4a38C94);
+        IERC20(0x2e9d63788249371f1DFC918a52f8d799F4a38C94); // SIMPLICITY: remove this for now
 
-    bool internal isOriginal = true;
+    bool internal isOriginal = true; // SIMPLICITY: remove this for now
 
-    address public tradeFactory = address(0);
+    address public tradeFactory = address(0); // SIMPLICITY: remove this for now
 
     constructor(address _vault) public BaseStrategy(_vault) {
         // You can set these parameters on deployment to whatever you want
@@ -69,7 +69,7 @@ contract Strategy is BaseStrategy {
         return twethBalance().add(wantBalance());
 
     // TODO: Build a more accurate estimate using the value of all positions in terms of `want`
-        return want.balanceOf(address(this));
+        return want.balanceOf(address(this)); // HINT: is this line getting executed?
     }
 
     function prepareReturn(uint256 _debtOutstanding)
@@ -169,7 +169,7 @@ contract Strategy is BaseStrategy {
         // TODO create an accurate price oracle
         return _amtInWei;
     }
-}
+} // HINT: where does this bracket to the left come from? 
 
 
     // View functions to check health and status of Strategy
