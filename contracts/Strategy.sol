@@ -45,7 +45,7 @@ contract Strategy is BaseStrategy {
 
     // Removing for now:  address public tradeFactory = address(0);
 
-    constructor(address _vault) public BaseStrategy(_vault) {
+    constructor(address _vault)BaseStrategy(_vault) public {
         // You can set these parameters on deployment to whatever you want
         // maxReportDelay = 6300;
         // profitFactor = 100;
